@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Should You Sell? A Market Reality Report | 5408 Caramella Dr, Orlando</title>
+<style>
+:root {
+    --teal: #008C82;
+    --teal-dark: #006661;
+    --gold: #D4AF50;
+    --gold-light: #E8D094;
+    --green: #2d8a3e;
+    --green-bg: #f0f7f1;
+    --amber: #c9a227;
+    --amber-bg: #fbf8ee;
+    --red: #b8392e;
+    --red-bg: #fbf0ee;
+    --ink: #1a1a1a;
+    --body: #2a2a2a;
+    --muted: #666;
+    --light-muted: #888;
+    --border: #e5e5e5;
+    --bg: #fafafa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--body); line-height: 1.6; font-size: 16px; background: #fff; }
+.serif { font-family: 'Georgia', 'Times New Roman', serif; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+.report-header {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: white;
+    padding: 36px 0 44px 0;
+    border-bottom: 4px solid var(--gold);
+}
+.report-header .date { font-size: 14px; color: var(--gold-light); margin-bottom: 6px; }
+.report-header .prep-by { font-family: 'Georgia', serif; font-size: 16px; color: rgba(255,255,255,0.9); margin-bottom: 14px; }
+.report-header h1 { font-family: 'Georgia', serif; font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 8px; }
+.report-header .h1-sub { font-family: 'Georgia', serif; font-size: 28px; color: var(--gold-light); font-style: italic; margin-bottom: 16px; }
+.report-header .subtitle { font-size: 16px; color: rgba(255,255,255,0.95); }
+
+.summary-bar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 24px 0; }
+.summary-bar .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.summary-bar .item .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.summary-bar .item .value { font-family: 'Georgia', serif; font-size: 20px; color: var(--ink); font-weight: bold; line-height: 1.1; }
+.summary-bar .item .sub { font-size: 12px; color: var(--light-muted); margin-top: 2px; }
+.summary-bar .item.verdict .value { color: var(--green); }
+.summary-bar .item.verdict { background: var(--green-bg); padding: 8px 12px; border-radius: 4px; border-left: 3px solid var(--green); }
+
+section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+section h2 { font-family: 'Georgia', serif; font-size: 28px; color: var(--teal); margin-bottom: 8px; font-weight: 700; line-height: 1.2; }
+section h2::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold); margin-top: 8px; }
+section h3 { font-family: 'Georgia', serif; font-size: 22px; color: var(--ink); margin: 24px 0 12px 0; }
+section h4 { font-family: 'Georgia', serif; font-size: 18px; color: var(--teal); margin: 18px 0 8px 0; }
+section p { margin-bottom: 12px; }
+section .lead { font-size: 17px; color: var(--body); margin-bottom: 20px; max-width: 800px; }
+
+.alert { background: var(--amber-bg); border-left: 4px solid var(--amber); padding: 14px 18px; margin: 16px 0; border-radius: 4px; }
+.alert.red { background: var(--red-bg); border-left-color: var(--red); }
+.alert.green { background: var(--green-bg); border-left-color: var(--green); }
+.alert-title { font-weight: bold; color: var(--amber); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.alert.red .alert-title { color: var(--red); }
+.alert.green .alert-title { color: var(--green); }
+.alert-title .icon { font-size: 18px; }
+
+.metric-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+.metric-card { background: var(--bg); padding: 16px; border-left: 3px solid var(--teal); border-radius: 0 6px 6px 0; }
+.metric-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.metric-card .value { font-family: 'Georgia', serif; font-size: 24px; color: var(--ink); font-weight: bold; line-height: 1.1; }
+.metric-card .sub { font-size: 12px; color: var(--light-muted); margin-top: 4px; }
+.metric-card.red { border-left-color: var(--red); }
+.metric-card.red .value { color: var(--red); }
+.metric-card.green { border-left-color: var(--green); }
+.metric-card.green .value { color: var(--green); }
+.metric-card.amber { border-left-color: var(--amber); }
+.metric-card.amber .value { color: var(--amber); }
+
+table.data { width: 100%; border-collapse: collapse; font-size: 14px; margin: 16px 0; }
+table.data thead th { background: var(--teal); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+table.data thead th.numeric { text-align: right; }
+table.data td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.data td.numeric { text-align: right; font-variant-numeric: tabular-nums; }
+table.data tr.subject { background: #fff7e6; font-weight: 600; }
+table.data tr.subject td:first-child { color: var(--gold); }
+table.data tr.alarm { background: var(--red-bg); }
+table.data tr.alarm td:first-child { color: var(--red); font-weight: 600; }
+table.data tr.highlight { background: var(--green-bg); }
+table.data tr.highlight td:first-child { color: var(--green); font-weight: 600; }
+table.data tr.total { background: var(--bg); font-weight: bold; border-top: 2px solid var(--teal); }
+table.data tfoot td { background: var(--bg); padding: 8px 12px; font-size: 12px; color: var(--muted); border: none; }
+
+.path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+.path-card { padding: 24px; border-radius: 8px; border: 2px solid var(--border); }
+.path-card.recommended { background: var(--green-bg); border-color: var(--green); position: relative; }
+.path-card.recommended::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--green);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.path-card.alternate { background: var(--amber-bg); border-color: var(--amber); position: relative; }
+.path-card.alternate::before {
+    content: 'ALTERNATIVE';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--amber);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.path-card h3 { font-family: 'Georgia', serif; font-size: 22px; margin-top: 0; }
+.path-card.recommended h3 { color: var(--green); }
+.path-card.alternate h3 { color: var(--amber); }
+.path-card .big-number { font-family: 'Georgia', serif; font-size: 28px; font-weight: bold; margin: 16px 0 4px 0; }
+.path-card.recommended .big-number { color: var(--green); }
+.path-card.alternate .big-number { color: var(--amber); }
+.path-card .big-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+.compare-card { padding: 20px; border-radius: 8px; border: 1px solid var(--border); }
+.compare-card.sell { background: var(--red-bg); border-color: var(--red); }
+.compare-card.hold { background: var(--green-bg); border-color: var(--green); }
+.compare-card h3 { margin-top: 0; font-family: 'Georgia', serif; font-size: 20px; }
+.compare-card.sell h3 { color: var(--red); }
+.compare-card.hold h3 { color: var(--green); }
+.compare-card ul { list-style: none; padding: 0; margin: 12px 0 0 0; }
+.compare-card li { padding: 6px 0; font-size: 14px; display: flex; gap: 10px; align-items: flex-start; }
+.compare-card.sell li::before { content: '🔴'; flex-shrink: 0; }
+.compare-card.hold li::before { content: '🟢'; flex-shrink: 0; }
+
+.recommendation { background: linear-gradient(135deg, #f0f7f1 0%, #fafefa 100%); border: 2px solid var(--green); border-radius: 12px; padding: 28px; margin: 24px 0; }
+.recommendation h3 { font-family: 'Georgia', serif; color: var(--green); font-size: 24px; margin-top: 0; }
+.recommendation .verdict-tag { display: inline-block; background: var(--green); color: white; padding: 4px 14px; border-radius: 4px; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+
+.condition-callout { background: linear-gradient(135deg, #fefbf0 0%, #fff7e6 100%); border: 2px solid var(--gold); border-radius: 12px; padding: 24px; margin: 20px 0; }
+.condition-callout h3 { font-family: 'Georgia', serif; color: var(--gold); font-size: 22px; margin-top: 0; margin-bottom: 12px; }
+.condition-callout .gold-tag { display: inline-block; background: var(--gold); color: white; padding: 4px 14px; border-radius: 4px; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+
+.report-footer { background: var(--ink); color: white; padding: 28px 0; text-align: center; font-size: 14px; }
+.report-footer .brand { font-family: 'Georgia', serif; font-size: 18px; color: var(--gold); margin-bottom: 8px; }
+.report-footer .contact { color: rgba(255,255,255,0.9); margin: 6px 0; }
+.report-footer .contact a { color: var(--gold-light); text-decoration: none; }
+.report-footer .disclaimer { color: rgba(255,255,255,0.6); font-size: 11px; margin-top: 14px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+@media (max-width: 768px) {
+    .summary-bar .grid { grid-template-columns: repeat(2, 1fr); }
+    .metric-row { grid-template-columns: repeat(2, 1fr); }
+    .path-grid, .compare-grid { grid-template-columns: 1fr; }
+    .report-header h1 { font-size: 30px; }
+    .report-header .h1-sub { font-size: 22px; }
+    section h2 { font-size: 22px; }
+    table.data { font-size: 12px; }
+    table.data td, table.data th { padding: 8px 6px; }
+}
+</style>
+</head>
+<body>
+
+<header class="report-header">
+    <div class="container">
+        <div class="date">May 5, 2026</div>
+        <div class="prep-by">Verandah Properties · Owner Advisory Report</div>
+        <h1>Sell or Rent?</h1>
+        <div class="h1-sub">A Strategic Path Analysis</div>
+        <div class="subtitle">5408 Caramella Drive, Orlando, FL 32829 · Prepared exclusively for Sandra</div>
+    </div>
+</header>
+
+<div class="summary-bar">
+    <div class="container">
+        <div class="grid">
+            <div class="item">
+                <div class="label">Property</div>
+                <div class="value">Townhome</div>
+                <div class="sub">Orlando, FL 32829</div>
+            </div>
+            <div class="item">
+                <div class="label">Year Built</div>
+                <div class="value">2005</div>
+                <div class="sub">21 years old · carpet-heavy</div>
+            </div>
+            <div class="item">
+                <div class="label">Est. List Range (As-Is)</div>
+                <div class="value">$325K–$340K</div>
+                <div class="sub">Updated: $345K–$365K</div>
+            </div>
+            <div class="item">
+                <div class="label">Status</div>
+                <div class="value">Vacant</div>
+                <div class="sub">$0 income · refresh window open</div>
+            </div>
+            <div class="item verdict">
+                <div class="label">Verandah Verdict</div>
+                <div class="value">Refresh + Rent</div>
+                <div class="sub">Update. Re-lease. Reassess in 24 mo.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>Sandra — The Honest Frame for This Decision</h2>
+        <p class="lead"><b>Doing nothing is not an option. Whether you sell or rent, this property cannot be marketed in its current condition without taking a meaningful price hit either way.</b></p>
+
+        <p>That changes the question. The real choice in front of you is not "should I sell or hold" — it is "given that I need to invest $9–$13K to refresh this property to compete in 2026, which path produces the better outcome for me?"</p>
+
+        <p>This report walks through both paths with the actual data — the comp set, the market conditions in 32829 specifically, the federal tax exposure on a sale given your $119,900 cost basis from 2009, and the realistic income picture if you re-rent. By the end you will see why our recommendation tilts toward refresh and re-lease, but we want you to see the math on the sell path too so the decision is yours, fully informed.</p>
+
+        <p>We have managed this property for many years and want what is best for you. The data tells a clear story right now, and the unique factors of your specific situation — vacant property, large unrealized gain, dated condition that affects both paths equally — make this recommendation clearer than it might be for other owners.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>The Condition Reality — Why This Drives Everything</h2>
+
+        <div class="condition-callout">
+            <span class="gold-tag">The Single Biggest Factor</span>
+            <h3>Carpet-Heavy in a 2026 Market Means You Cannot Compete As-Is</h3>
+            <p>The Caramella property has almost exclusively carpet flooring with very little hard floor surface. In the 2026 buyer and tenant market, this is the #1 fixable condition issue and it affects both paths equally:</p>
+
+            <h4 style="color: var(--ink); margin-top: 18px;">If You Try to Sell As-Is</h4>
+            <ul style="padding-left: 22px; margin: 8px 0;">
+                <li>Buyers compare your property to competing inventory with luxury vinyl plank, tile, or wood — and discount aggressively for the difference</li>
+                <li>Inspection negotiations target carpet condition, age, allergens, and pet history</li>
+                <li>Realistic pricing as-is: $325,000–$340,000 versus $345,000–$365,000 with refresh — a <b>$15,000–$25,000 gap</b></li>
+                <li>Days on market extend significantly — comparable Tivoli Villa Dr (2005, similar profile) has been listed <b>162 days unsold</b> at $336,900</li>
+            </ul>
+
+            <h4 style="color: var(--ink); margin-top: 18px;">If You Try to Re-Rent As-Is</h4>
+            <ul style="padding-left: 22px; margin: 8px 0;">
+                <li>Tenant pool narrows — quality renters in 2026 expect hard floor surfaces in main living areas</li>
+                <li>Rent ceiling: $2,200–$2,300/mo (same as previous tenant or slight uplift)</li>
+                <li>Longer vacancy time as you wait for the right tenant willing to accept the carpet</li>
+                <li>Tenant retention drops — even good tenants leave when newer alternatives become available</li>
+            </ul>
+
+            <h4 style="color: var(--ink); margin-top: 18px;">The Refresh Investment Pays Back Either Way</h4>
+            <ul style="padding-left: 22px; margin: 8px 0;">
+                <li><b>Luxury vinyl plank</b> in main living areas + bedrooms: ~$5,500–$8,000 for 1,779 sqft</li>
+                <li><b>Full interior repaint</b> (neutral palette): ~$2,500–$3,500</li>
+                <li><b>Minor updates</b> (light fixtures, hardware, deep clean): ~$1,000–$1,500</li>
+                <li><b>Total realistic refresh budget: $9,000–$13,000</b></li>
+                <li>Adds ~$15,000–$25,000 to sale price OR ~$200–$300/mo to rent — paying back in either path</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>The Sales Market — What the CMA Data Actually Says</h2>
+
+        <div class="metric-row">
+            <div class="metric-card amber">
+                <div class="label">Active CMA Listings</div>
+                <div class="value">9</div>
+                <div class="sub">Direct competitive set</div>
+            </div>
+            <div class="metric-card amber">
+                <div class="label">Avg Days on Market</div>
+                <div class="value">65</div>
+                <div class="sub">Active listings</div>
+            </div>
+            <div class="metric-card red">
+                <div class="label">Longest Active Listing</div>
+                <div class="value">168</div>
+                <div class="sub">Days — newer build still unsold</div>
+            </div>
+            <div class="metric-card amber">
+                <div class="label">Avg Sale/List Ratio</div>
+                <div class="value">99.1%</div>
+                <div class="sub">Better than Lake Nona, but…</div>
+            </div>
+        </div>
+
+        <h3>The Data Reveals Two Markets — And You Are in the Wrong One</h3>
+        <p>Looking at the sold comps, the 32829 corridor has split into two distinct markets:</p>
+        <ul style="padding-left: 22px;">
+            <li><b>The Everbe new-build market</b> (2025 builds, ~$440K–$469K) — selling at 100% of list within 16–47 days. This is a hot product because it is brand new with builder warranties and modern finishes.</li>
+            <li><b>The older townhouse market</b> (2005–2009 vintage, similar to your property) — selling between $295K–$350K, taking 51–197 days, and sale-to-list ratios as low as 93.7%.</li>
+        </ul>
+
+        <div class="alert red">
+            <div class="alert-title"><span class="icon">⚠</span> The single most relevant comp is a warning</div>
+            <p style="margin: 0;"><b>10036 Moorshire Cir</b> in Lee Vista Square — a 2006-built townhouse, 1,795 sqft (almost identical to your 1,779 sqft) — sold for <b>$295,000</b> in February 2026 after <b>197 days on market</b>, at <b>93.7% of list price</b>. That is the worst sale-to-list ratio in the entire CMA. If you list as-is, this is your most likely outcome trajectory.</p>
+        </div>
+
+        <h3>Older-Vintage Comp Pricing Range</h3>
+        <table class="data">
+            <thead>
+                <tr>
+                    <th>Address</th>
+                    <th>Subdivision</th>
+                    <th class="numeric">Yr Built</th>
+                    <th class="numeric">SqFt</th>
+                    <th class="numeric">Sale Price</th>
+                    <th class="numeric">$/SqFt</th>
+                    <th class="numeric">SP/LP</th>
+                    <th class="numeric">DOM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9858 Biscotti Ave</td>
+                    <td>Crowntree Lakes</td>
+                    <td class="numeric">2009</td>
+                    <td class="numeric">1,768</td>
+                    <td class="numeric">$350,000</td>
+                    <td class="numeric">$198</td>
+                    <td class="numeric">100%</td>
+                    <td class="numeric">51</td>
+                </tr>
+                <tr>
+                    <td>6198 Tivoli Gardens Blvd</td>
+                    <td>Tivoli Gardens</td>
+                    <td class="numeric">2006</td>
+                    <td class="numeric">1,659</td>
+                    <td class="numeric">$344,000</td>
+                    <td class="numeric">$207</td>
+                    <td class="numeric">100%</td>
+                    <td class="numeric">97</td>
+                </tr>
+                <tr>
+                    <td>6030 Tivoli Gardens Blvd</td>
+                    <td>Tivoli Gardens</td>
+                    <td class="numeric">2007</td>
+                    <td class="numeric">1,659</td>
+                    <td class="numeric">$340,000</td>
+                    <td class="numeric">$205</td>
+                    <td class="numeric">99.4%</td>
+                    <td class="numeric">20</td>
+                </tr>
+                <tr class="alarm">
+                    <td>10036 Moorshire Cir</td>
+                    <td>Lee Vista Square</td>
+                    <td class="numeric">2006</td>
+                    <td class="numeric">1,795</td>
+                    <td class="numeric">$295,000</td>
+                    <td class="numeric">$164</td>
+                    <td class="numeric">93.7%</td>
+                    <td class="numeric">197</td>
+                </tr>
+                <tr class="subject">
+                    <td>5408 Caramella Dr — Your Property</td>
+                    <td>—</td>
+                    <td class="numeric">2005</td>
+                    <td class="numeric">1,779</td>
+                    <td class="numeric">As-is: $325–340K<br>Refreshed: $345–365K</td>
+                    <td class="numeric">$183–$205</td>
+                    <td class="numeric">—</td>
+                    <td class="numeric">—</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Your property is closest in size to Moorshire Circle ($164/sqft, 197 DOM, 93.7% of list), older than Biscotti Avenue, and the same vintage as Tivoli Villa Dr (which is currently sitting <b>162 days unsold at $336,900</b>). The realistic as-is sale range of $325,000–$340,000 reflects this comp pressure honestly.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>The Tax Reality — Why Selling Has a Heavier Cost for You Than Most Owners</h2>
+
+        <div class="alert amber">
+            <div class="alert-title"><span class="icon">⚠</span> This conversation matters more for your property than for most</div>
+            <p style="margin: 0;">You purchased this property in 2009 for <b>$119,900</b>, which means you have <b>17 years of appreciation</b> sitting in this asset. That is a meaningful unrealized gain — and selling triggers federal tax exposure that is significantly larger than typical newer-purchase scenarios.</p>
+        </div>
+
+        <h3>Capital Gains and Depreciation Recapture — Illustrative Math</h3>
+
+        <p>If you have been working with an accountant, I am assuming you have been claiming depreciation deductions on this rental property — which is standard and a meaningful tax benefit during the hold period. The IRS recovers that benefit at sale through depreciation recapture.</p>
+
+        <table class="data">
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th class="numeric">Estimate</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Estimated sale price (mid-range, refreshed)</td>
+                    <td class="numeric">$355,000</td>
+                    <td>Per CMA comps with refresh</td>
+                </tr>
+                <tr>
+                    <td>Less: selling costs (commission + closing ~7%)</td>
+                    <td class="numeric">−$25,000</td>
+                    <td>Florida doc stamps, title, fees</td>
+                </tr>
+                <tr>
+                    <td>Less: refresh cost (capitalizable)</td>
+                    <td class="numeric">−$11,000</td>
+                    <td>LVP, paint, fixtures</td>
+                </tr>
+                <tr>
+                    <td>Adjusted basis (~$120K − ~$50K depreciation)</td>
+                    <td class="numeric">~$70,000</td>
+                    <td>17 years on ~$84K building basis</td>
+                </tr>
+                <tr class="total">
+                    <td>Approximate total taxable gain</td>
+                    <td class="numeric">~$249,000</td>
+                    <td>Combined gain + recapture</td>
+                </tr>
+                <tr>
+                    <td>Capital gains portion (~$199K) at 15%</td>
+                    <td class="numeric">~$29,850</td>
+                    <td>Federal long-term cap gains</td>
+                </tr>
+                <tr>
+                    <td>Depreciation recapture (~$50K) at 25%</td>
+                    <td class="numeric">~$12,500</td>
+                    <td>Flat IRS rate, unavoidable</td>
+                </tr>
+                <tr>
+                    <td>Net Investment Income Tax (3.8%) — if applicable</td>
+                    <td class="numeric">~$5,000–$7,500</td>
+                    <td>Income-dependent</td>
+                </tr>
+                <tr class="total">
+                    <td><b>Estimated total federal tax exposure</b></td>
+                    <td class="numeric"><b>~$42,000–$50,000</b></td>
+                    <td>Reduces net proceeds substantially</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="alert amber">
+            <div class="alert-title"><span class="icon">⚠</span> Critical — Confirm with Your CPA</div>
+            <p style="margin: 0;">These numbers are illustrative only and based on assumptions: that you have been claiming depreciation since 2009 (standard practice), and standard split between land and building basis. Your actual exposure depends on your filing status, income level, exact accumulated depreciation schedule, any capital improvements made over 17 years, and other factors. We strongly recommend reviewing this with your CPA <i>before</i> any decision to sell. The ~$42K–$50K range shown above is realistic for properties with your acquisition profile, but your specific number may vary materially.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Two Paths — Side-by-Side Math</h2>
+
+        <p class="lead">Both paths require the same $9,000–$13,000 refresh investment. The question is what each path nets you afterward.</p>
+
+        <div class="path-grid">
+            <div class="path-card recommended">
+                <h3>Path A — Refresh + Re-Rent</h3>
+                <p><b>Invest in refresh, lease at uplifted rent, hold 12–24 months minimum, reassess sale conditions later.</b></p>
+
+                <div class="big-number">$28,800–$30,000</div>
+                <div class="big-label">Year 1 gross rental income</div>
+
+                <table class="data" style="margin-top: 12px; font-size: 13px;">
+                    <tr><td>Refresh investment</td><td class="numeric">−$11,000</td></tr>
+                    <tr><td>1–2 mo vacancy during refresh + re-lease</td><td class="numeric">−$3,300</td></tr>
+                    <tr><td>Year 1 net income (after refresh + vacancy)</td><td class="numeric"><b>~$15,500</b></td></tr>
+                    <tr><td>Years 2+ ongoing annual income</td><td class="numeric"><b>~$28,800–$30,000/yr</b></td></tr>
+                </table>
+
+                <p style="margin-top: 12px; font-size: 14px;"><b>Plus you preserve:</b></p>
+                <ul style="padding-left: 22px; font-size: 13px;">
+                    <li>~$42,000–$50,000 in deferred federal taxes</li>
+                    <li>Continued depreciation deductions through hold period</li>
+                    <li>Asset appreciation as 32829 corridor matures</li>
+                    <li>1031 exchange option for future tax-deferred upgrade</li>
+                    <li>Flexibility to time the eventual sale to better market conditions</li>
+                </ul>
+            </div>
+
+            <div class="path-card alternate">
+                <h3>Path B — Refresh + Sell</h3>
+                <p><b>Invest in refresh, list at uplifted price, sell now, accept tax exposure, deploy capital elsewhere.</b></p>
+
+                <div class="big-number">$255,000–$280,000</div>
+                <div class="big-label">Estimated true net (after all costs)</div>
+
+                <table class="data" style="margin-top: 12px; font-size: 13px;">
+                    <tr><td>Refreshed sale price (mid)</td><td class="numeric">$355,000</td></tr>
+                    <tr><td>Refresh investment</td><td class="numeric">−$11,000</td></tr>
+                    <tr><td>Selling costs (commission + closing)</td><td class="numeric">−$25,000</td></tr>
+                    <tr><td>Buyer concessions / price reductions</td><td class="numeric">−$5,000–$10,000</td></tr>
+                    <tr><td>Federal capital gains + recapture</td><td class="numeric">−$42,000–$50,000</td></tr>
+                    <tr><td>NIIT (if applicable)</td><td class="numeric">−$5,000–$7,500</td></tr>
+                    <tr class="total"><td><b>True net to you</b></td><td class="numeric"><b>~$255K–$280K</b></td></tr>
+                </table>
+
+                <p style="margin-top: 12px; font-size: 14px;"><b>What you give up:</b></p>
+                <ul style="padding-left: 22px; font-size: 13px;">
+                    <li>$28,800+/year in ongoing rental income</li>
+                    <li>17 years of accumulated equity becomes a one-time check</li>
+                    <li>Future appreciation as Lee Vista / Crowntree corridor matures</li>
+                    <li>Continued tax shelter from depreciation</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>The Honest Comparison Math</h3>
+        <p>If you take Path A and rent for 5 years before selling, you collect approximately <b>$144,000 in gross rental income</b> while also likely benefiting from continued appreciation. Even after subtracting vacancy, maintenance, and management costs, you net considerably more income than the marginal increase you might capture by selling now versus 5 years from now — and you preserve the $42K–$50K tax exposure for a future strategy (potentially via 1031 exchange).</p>
+
+        <p>The only scenarios where Path B (sell now) wins are:</p>
+        <ul style="padding-left: 22px;">
+            <li>You have a specific need for the lump-sum capital — relocation, debt payoff, family obligation, opportunity elsewhere</li>
+            <li>You are simplifying your investment portfolio and want to exit landlord obligations</li>
+            <li>Your CPA has identified a specific tax-year reason to take the gain now (rare)</li>
+            <li>You believe the 32829 market will deteriorate further over the next 24 months (the data does not support this)</li>
+        </ul>
+
+        <p>If none of those apply to you, the numbers favor refresh and re-rent strongly.</p>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Hold vs. Sell — The Full Side by Side</h2>
+
+        <div class="compare-grid">
+            <div class="compare-card sell">
+                <h3>If You Sell Now (Even With Refresh)</h3>
+                <ul>
+                    <li>Realistic refreshed sale: $345K–$365K range</li>
+                    <li>Comparable Tivoli Villa (2005, similar profile) sitting 162 days unsold at $336,900</li>
+                    <li>Moorshire (2006, 1,795 sqft) sold at $295K — 93.7% of list, 197 DOM</li>
+                    <li>Compete against Everbe new builds at $440K+ that are selling fast</li>
+                    <li>~$42K–$50K in federal taxes (cap gains + depreciation recapture)</li>
+                    <li>Refresh cost ~$11K coming off your gain regardless</li>
+                    <li>Selling costs ~$25K (commission + closing) reduce proceeds</li>
+                    <li>True net likely $255K–$280K — not the $355K headline</li>
+                    <li>Trade ongoing income stream for one-time check</li>
+                    <li>Lose 17 years of depreciation tax shelter</li>
+                </ul>
+            </div>
+            <div class="compare-card hold">
+                <h3>If You Refresh and Re-Rent</h3>
+                <ul>
+                    <li>$2,400–$2,500/mo rent post-refresh ($200–$300 uplift over prior $2,200)</li>
+                    <li>$28,800–$30,000 annual gross income — recurring, not one-time</li>
+                    <li>Refresh investment ($11K) recouped via rent uplift in 3–4 years</li>
+                    <li>Defer $42K–$50K in capital gains and depreciation recapture indefinitely</li>
+                    <li>Continued depreciation deductions through hold period</li>
+                    <li>Asset appreciation continues — Lee Vista / Crowntree corridor maturing</li>
+                    <li>1031 exchange option preserved for future tax-deferred upgrade</li>
+                    <li>Sell from position of strength later — better market timing flexibility</li>
+                    <li>Stable, predictable income stream you control</li>
+                    <li>Verandah handles tenant placement and ongoing management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Verandah's Recommendation</h2>
+
+        <div class="recommendation">
+            <span class="verdict-tag">Refresh and Re-Rent</span>
+            <h3>Our Honest Advice — With 20+ Years in This Market</h3>
+            <p style="font-size: 16px; margin-bottom: 14px;"><b>Invest the $9,000–$13,000 in a refresh now while the property is vacant. Re-lease at $2,400–$2,500 per month. Hold for 12–24 months minimum. Reassess sale conditions when the market and your personal situation align.</b></p>
+
+            <p>Sandra, the unique combination of factors here points clearly to refresh and re-rent: you have a vacant property (perfect window for updates without tenant disruption), a 17-year cost basis that creates substantial tax exposure on a sale, a 32829 submarket where older townhouses are taking 100–200 days to sell at compressed sale-to-list ratios, and a refresh investment that pays back through rent uplift either way.</p>
+
+            <p>Refreshing now and re-leasing accomplishes three things simultaneously: it positions the property to attract a quality tenant at a meaningful rent uplift, it defers $42,000–$50,000 in federal taxes that would hit you immediately on a sale, and it preserves your optionality to sell later when the market or your personal situation calls for it.</p>
+
+            <p style="margin-bottom: 0;">If you do choose to sell down the road, the refresh investment you make now is not wasted — it positions the property for a meaningfully higher sale price ($15K–$25K uplift) when you do go to market, while generating $28,800+ per year in income in the meantime. The refresh is the single best decision regardless of the path you ultimately choose.</p>
+        </div>
+
+        <h3>What Verandah Will Do For You Right Now</h3>
+        <p>If you decide to refresh and re-rent, here is what we will do immediately:</p>
+        <ul style="padding-left: 22px;">
+            <li><b>Coordinate the refresh scope and contractors</b> — luxury vinyl plank installation, full interior repaint, fixture updates. We have trusted vendors who know rental finishes and can complete the work in 2–3 weeks while the property is vacant</li>
+            <li><b>Pull a current rental market analysis</b> for 5408 Caramella specifically to confirm the $2,400–$2,500/mo positioning is right for the post-refresh property</li>
+            <li><b>Market and place a quality tenant</b> within 21–30 days of refresh completion using our standard tenant screening, background, and credit checks</li>
+            <li><b>Manage the property fully going forward</b> — rent collection, maintenance coordination, lease renewals, and tenant relationship management</li>
+            <li><b>Monitor the market quarterly</b> and notify you when conditions shift in your favor — so when you are ready to sell, you sell at the right moment, not at the wrong one</li>
+            <li><b>Coordinate with your CPA</b> on the timing of any future sale to optimize your capital gains and depreciation recapture exposure, including 1031 exchange options if relevant</li>
+        </ul>
+
+        <p style="margin-top: 16px;"><b>If you would prefer to sell now</b>, we will support you with eyes wide open. We will introduce you to a trusted listing agent, manage the refresh process before listing, and be transparent about every cost along the way. But the data and your specific tax situation make refresh and re-rent the stronger play, and we owe you the truthful read.</p>
+    </div>
+</section>
+
+<footer class="report-footer">
+    <div class="container">
+        <div class="brand">VERANDAH PROPERTIES, LLC</div>
+        <div class="contact">Pamela Syvertson, Owner &amp; Broker</div>
+        <div class="contact">(407) 855-0331 · <a href="mailto:pamela@verandahproperties.com">pamela@verandahproperties.com</a></div>
+        <div class="contact"><a href="https://www.verandahproperties.com">verandahproperties.com</a></div>
+        <div class="disclaimer">
+            This report is an opinion prepared by Verandah Properties, LLC based on MLS data as of May 5, 2026 and publicly available market research. It should not be considered an appraisal, tax advice, or legal/financial advice. Market data sourced from CoreLogic MLS via Stellar MLS. Tax illustrations are based on publicly recorded purchase price and standard depreciation assumptions and are illustrative only — your actual federal tax exposure depends on your specific filing status, income level, accumulated depreciation, and other factors that should be reviewed with your CPA. Consult a licensed financial advisor and CPA before making real estate decisions. © 2026 Verandah Properties, LLC.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
